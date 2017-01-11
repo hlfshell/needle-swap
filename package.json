@@ -1,0 +1,11 @@
+{
+  "name": "needle-swap",
+  "version": "1.0.0",
+  "description": "Dependency injection for testing via overloading the require function",
+  "main": "index.js",
+  "author": {
+    "name": "Keith Chester",
+    "email": "kchester@gmail.com"
+  },
+  "license": "MIT"
+}
