@@ -24,4 +24,19 @@ needleswap.clear = function(){
         };
 };
 
+needleswap.clearCache = function(items){
+	if(!items) return needleswap.clearEntireCache();
+	if(!Array.isArray(items)) items = [items];
+
+	items.forEach(item =>{
+		delete require.cache[require.resolve(item)];
+	});
+};
+
+needleswap.clearEntireCache = function(){
+	Object.keys(require.cache).forEach(cachedItem =>{
+		delete require.cache[require.resolve(cachedItem)];
+	});
+}
+
 module.exports = needleswap;

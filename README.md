@@ -42,6 +42,26 @@ it("should read the file by the path sent", ()=>{
 });
 ```
 
+## Clearing the require cache
+
+If you are calling needle-swap constantly between tests, you may need to reload routes via require. If you do this, your modules/files are cached for quicker loading. This can cause testing to go awry. If you encounter this, try clearing the cache using the following functions.
+
+### clearCache([item])
+
+```
+needleswap.clearCache("my-module");
+needleswap.clearCache(["fs", "async", "my-module"]);
+needleswap.cleaerCache();
+```
+
+Calling with an individual or an array of names will get resolved and cleared from the cache.
+
+Calling with nothing passed with call clearEntireCache.
+
+### clearEntireCache()
+This will erase ALL cached values in the require, vastly slowly dowing your loading of modules but guarenteeing a fresh read of any module or file you require.
+
+
 ## Cleanup
 
 After you're done, you can call .clear() to clear out all of needleswaps switchouts.
