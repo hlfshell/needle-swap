@@ -25,7 +25,8 @@ module.exports = mySuperImportantFunction
 then, in your test file, you can make use needle-swap to override *fs* so it returns your test data, and not access a remote file.
 
 ```
-require('needle-swap')({
+const needleswap = require('needle-swap');
+needleswap({
 	"fs": {
 		readFileSync: (filename)=>{
 			if(filename == "test") return "Test data";
@@ -41,7 +42,13 @@ it("should read the file by the path sent", ()=>{
 });
 ```
 
+## Cleanup
 
+After you're done, you can call .clear() to clear out all of needleswaps switchouts.
+
+```
+needleswap.clear()
+```
 
 ###The pun in the name is terrible
 Point taken.
