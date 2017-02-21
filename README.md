@@ -51,7 +51,7 @@ If you are calling needle-swap constantly between tests, you may need to reload 
 ```
 needleswap.clearCache("my-module");
 needleswap.clearCache(["fs", "async", "my-module"]);
-needleswap.cleaerCache();
+needleswap.clearCache();
 ```
 
 Calling with an individual or an array of names will get resolved and cleared from the cache.
@@ -59,7 +59,7 @@ Calling with an individual or an array of names will get resolved and cleared fr
 Calling with nothing passed with call clearEntireCache.
 
 ### clearEntireCache()
-This will erase ALL cached values in the require, vastly slowly dowing your loading of modules but guarenteeing a fresh read of any module or file you require.
+This will erase ALL cached values in the require, vastly slowly dowing your loading of modules but guaranteeing a fresh read of any module or file you require.
 
 
 ## Cleanup
