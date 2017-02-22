@@ -3,25 +3,26 @@ const assert = require('assert').ok;
 
 var needleswap = function(modules){
 
+	needleswap.modules = modules;
+
 	module.constructor.prototype.require = function(requirePath){
 		var self = this;
 		assert(path, "No path provided");
 		assert(typeof requirePath == "string", "Provided path must be a string");
 
-		if(modules[requirePath]) return modules[requirePath];
+		if(needleswap.modules[requirePath]) return modules[requirePath];
 
 		return self.constructor._load(requirePath,self);
 	};
 
+	return needleswap;
+
 };
 
 needleswap.clear = function(){
-	module.constructor.prototype.require = function(requirePath){
-		var self = this;
-		assert(path, "No path provided");
-		assert(typeof requirePath == "string", "Provided path must be a string");
-                return self.constructor._load(requirePath,self);
-        };
+	needleswap.modules = {};
+
+	return needleswap;
 };
 
 needleswap.clearCache = function(items){
@@ -31,12 +32,16 @@ needleswap.clearCache = function(items){
 	items.forEach(item =>{
 		delete require.cache[require.resolve(item)];
 	});
+
+	return needleswap;
 };
 
 needleswap.clearEntireCache = function(){
 	Object.keys(require.cache).forEach(cachedItem =>{
 		delete require.cache[require.resolve(cachedItem)];
 	});
+
+	return needleswap;
 }
 
 module.exports = needleswap;

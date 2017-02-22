@@ -42,6 +42,8 @@ it("should read the file by the path sent", ()=>{
 });
 ```
 
+_Needleswap will return itself so you can chain the cache clearing command if need be._
+
 ## Clearing the require cache
 
 If you are calling needle-swap constantly between tests, you may need to reload routes via require. If you do this, your modules/files are cached for quicker loading. This can cause testing to go awry. If you encounter this, try clearing the cache using the following functions.
