@@ -53,7 +53,7 @@ If you are calling needle-swap constantly between tests, you may need to reload 
 ```
 needleswap.clearCache("my-module");
 needleswap.clearCache(["fs", "async", "my-module"]);
-needleswap.clearCache();
+needleswap.clearCache(); // This is the same as calling clearEntireCache
 ```
 
 Since needleswap returns itself, you can easily do this post declaration of modules to inject.
@@ -66,15 +66,13 @@ needleswap({
 
 Calling with an individual or an array of names will get resolved and cleared from the cache.
 
-Calling with nothing passed with call clearEntireCache.
-
 ### clearEntireCache()
 This will erase ALL cached values in the require, vastly slowly dowing your loading of modules but guaranteeing a fresh read of any module or file you require.
 
 
 ## Cleanup
 
-After you're done, you can call .clear() to clear out all of needleswaps switchouts.
+After you're done, you can call .clear() to clear out all of needleswap's overrides. Since needleswap is switching out the global require function, you'll need to do this even if you destroy the needleswap object or work in an entirely different file - so it's an important step!
 
 ```
 needleswap.clear()
