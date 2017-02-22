@@ -56,6 +56,14 @@ needleswap.clearCache(["fs", "async", "my-module"]);
 needleswap.cleaerCache();
 ```
 
+Since needleswap returns itself, you can easily do this post declaration of modules to inject.
+
+```
+needleswap({
+	"fs": "some fake functions for fs"
+}).clearCache();
+```
+
 Calling with an individual or an array of names will get resolved and cleared from the cache.
 
 Calling with nothing passed with call clearEntireCache.
