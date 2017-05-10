@@ -1,4 +1,5 @@
-#needle-swap
+# needle-swap
+
 needle-swap is a dead simple unopinionated method to perform dependency injection into loaded files for testing.
 
 ## Install
@@ -78,7 +79,7 @@ After you're done, you can call .clear() to clear out all of needleswap's overri
 needleswap.clear()
 ```
 
-###The pun in the name is terrible
+### The pun in the name is terrible
 Point taken.
 
 
