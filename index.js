@@ -7,7 +7,7 @@ var needleswap = function(modules){
 
 	module.constructor.prototype.require = function(requirePath){
 		var self = this;
-		assert(path, "No path provided");
+		assert(requirePath, "No path provided");
 		assert(typeof requirePath == "string", "Provided path must be a string");
 
 		if(needleswap.modules[requirePath]) return modules[requirePath];
